@@ -13,6 +13,7 @@ canvas {
 }
 
 #canvas-container {
+    background-color: rgb(220, 220, 220);
     display: grid;
     place-items: center;
 }

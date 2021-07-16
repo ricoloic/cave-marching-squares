@@ -1,4 +1,4 @@
-const scl = 18;
+const scl = 7;
 
 let canvas;
 let map;
@@ -14,17 +14,26 @@ function getSize() {
 
 function setup() {
     const { w, h } = getSize();
-    map = caveGenerator(w / scl, h / scl, 44, 4);
-    grid = map.tiles; 
+    map = caveGenerator(w / scl, h / scl, 50, 1);
+    console.log(map.tiles);
+    grid = map.tiles;
     canvas = createCanvas(w, h);
     const mainNodeDOM = canvas.parent();
     canvas.parent("canvas-container");
     mainNodeDOM.remove();
-
     rectMode(CENTER);
+}
+
+function mousePressed() {
+    map.smoothMap(1);
+    // map.removeAloneTiles(4);
+}
+
+function draw() {
     background(220);
     fill(30);
     stroke(30);
+    strokeWeight(1);
     map.forTiles((tileValue, x, y) => {
         if (!tileValue)
             rect(x * scl, y * scl, scl, scl);
