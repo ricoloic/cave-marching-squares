@@ -1,4 +1,4 @@
-const scl = 7;
+const scl = 20;
 
 let canvas;
 let map;
@@ -21,15 +21,17 @@ function setup() {
     const mainNodeDOM = canvas.parent();
     canvas.parent("canvas-container");
     mainNodeDOM.remove();
-    rectMode(CENTER);
+    drawCave();
 }
 
 function mousePressed() {
     map.smoothMap(1);
     // map.removeAloneTiles(4);
+    drawCave();
 }
 
-function draw() {
+function drawCave() {
+    rectMode(CENTER);
     background(220);
     fill(30);
     stroke(30);
